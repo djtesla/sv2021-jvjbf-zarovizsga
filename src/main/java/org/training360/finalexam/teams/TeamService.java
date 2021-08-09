@@ -45,7 +45,7 @@ public class TeamService {
 
     public PlayerDTO addExistingPlayerToTeam(long teamId, UpdateWithExistingPlayerCommand command) {
         Team team = teamRepository.findById(teamId).orElseThrow(() -> new IllegalArgumentException("Team cannot be found by id " + teamId));
-        Player playerToBeSigned = playerRepository.findById(command.getId()).orElseThrow(() -> new IllegalArgumentException("Player cannot be found by id " + command.getId()));
+        Player playerToBeSigned = playerRepository.findById(command.getPlayerId()).orElseThrow(() -> new IllegalArgumentException("Player cannot be found by id " + command.getPlayerId()));
         if (isSignAble(team, playerToBeSigned)) {
             team.addPLayer(playerToBeSigned);
         } /*else {
