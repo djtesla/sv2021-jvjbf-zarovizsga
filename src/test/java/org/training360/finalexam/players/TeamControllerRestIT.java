@@ -7,9 +7,12 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.test.context.jdbc.Sql;
-//import org.training360.finalexam.teams.CreateTeamCommand;
-//import org.training360.finalexam.teams.TeamDTO;
-//import org.training360.finalexam.teams.UpdateWithExistingPlayerCommand;
+import org.training360.finalexam.player.CreatePlayerCommand;
+import org.training360.finalexam.player.PlayerDTO;
+import org.training360.finalexam.player.PositionType;
+import org.training360.finalexam.teams.CreateTeamCommand;
+import org.training360.finalexam.teams.TeamDTO;
+import org.training360.finalexam.teams.UpdateWithExistingPlayerCommand;
 import org.zalando.problem.Problem;
 import org.zalando.problem.Status;
 
@@ -24,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Sql(statements = {"delete from players","delete from teams"})
 public class TeamControllerRestIT {
 
-    /*@Autowired
+    @Autowired
     TestRestTemplate template;
 
 
@@ -71,7 +74,7 @@ public class TeamControllerRestIT {
                         TeamDTO.class);
 
         TeamDTO resultWithPlayer = template.postForObject("/api/teams/{id}/players",
-                new CreatePlayerCommand("John Doe", LocalDate.of(1991,11,10),PositionType.CENTER_BACK),
+                new CreatePlayerCommand("John Doe", LocalDate.of(1991,11,10), PositionType.CENTER_BACK),
                 TeamDTO.class,
                 team.getId());
 
@@ -206,5 +209,5 @@ public class TeamControllerRestIT {
                         Problem.class);
 
         assertEquals(Status.BAD_REQUEST,result.getStatus());
-    }*/
+    }
 }

@@ -2,7 +2,7 @@ POST http://localhost:8080/api/players
 Content-Type: application/json
 
 {
-  "name": "John Doe",
+  "name": "Jane Doe",
   "birthDate": "1992-11-12",
   "position":"RIGHT_FULLBACK"
 }

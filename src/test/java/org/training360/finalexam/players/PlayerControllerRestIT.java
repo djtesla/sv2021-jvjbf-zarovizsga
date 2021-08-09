@@ -8,7 +8,11 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.test.context.jdbc.Sql;
-//import org.training360.finalexam.teams.CreateTeamCommand;
+import org.training360.finalexam.teams.CreateTeamCommand;
+import org.training360.finalexam.player.CreatePlayerCommand;
+import org.training360.finalexam.player.Player;
+import org.training360.finalexam.player.PlayerDTO;
+import org.training360.finalexam.player.PositionType;
 import org.zalando.problem.Problem;
 import org.zalando.problem.Status;
 
@@ -22,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Sql(statements = {"delete from players"})
 public class PlayerControllerRestIT {
 
-    /*@Autowired
+    @Autowired
     TestRestTemplate template;
 
 
@@ -95,6 +99,6 @@ public class PlayerControllerRestIT {
     }
 
 
-*/
+
 
 }
