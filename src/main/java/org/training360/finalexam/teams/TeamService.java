@@ -53,7 +53,7 @@ public class TeamService {
             throw new IllegalArgumentException("Player cannot sign to team");
 
         }*/
-        team = teamRepository.findTeamByIdWithPLayers(teamId);
+        //team = teamRepository.findTeamByIdWithPLayers(teamId);
         return modelMapper.map(playerToBeSigned, PlayerDTO.class);
 
     }
