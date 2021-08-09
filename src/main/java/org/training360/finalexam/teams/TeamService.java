@@ -43,6 +43,7 @@ public class TeamService {
         return modelMapper.map(team, TeamDTO.class);
     }
 
+    @Transactional
     public PlayerDTO addExistingPlayerToTeam(long teamId, UpdateWithExistingPlayerCommand command) {
         Team team = teamRepository.findById(teamId).orElseThrow(() -> new IllegalArgumentException("Team cannot be found by id " + teamId));
         Player playerToBeSigned = playerRepository.findById(command.getPlayerId()).orElseThrow(() -> new IllegalArgumentException("Player cannot be found by id " + command.getPlayerId()));
@@ -58,7 +59,7 @@ public class TeamService {
     }
 
     private boolean isSignAble(Team team, Player playerToBeSigned) {
-        return playerToBeSigned.getTeam() == null ||
+        return playerToBeSigned.getTeam() == null &&
                 team.getPlayers().stream().filter(player -> player.getPosition()==playerToBeSigned.getPosition()).count() < 2;
 
 
